@@ -9,6 +9,7 @@ Original file is located at
 
 from abc import ABC, abstractmethod
 
+# Animal Class
 class Animal(ABC):
   def __init__(self, name, species, age, food):
     self.name = name
@@ -26,6 +27,7 @@ class Animal(ABC):
   def feed(self):
     print(f"{self.name} eats {self.food}.")
 
+# Mammal Class
 class Mammal(Animal):
   def __init__(self, name, species, age, food, has_fur=True):
     super().__init__(name, species, age, food)
@@ -34,6 +36,7 @@ class Mammal(Animal):
   def make_sound(self):
     print(f"{self.name} roars.")
 
+# Bird Class
 class Bird(Animal):
   def __init__(self, name, species, age, food, can_fly=True):
     super().__init__(name, species, age, food)
@@ -42,6 +45,7 @@ class Bird(Animal):
   def make_sound(self):
     print(f"{self.name} chirps.")
 
+# Reptile Class
 class Reptile(Animal):
     def __init__(self, name, species, age, food, has_scales = True):
         super().__init__(name, species, age, food)
@@ -50,28 +54,32 @@ class Reptile(Animal):
     def make_sound(self):
         print(f"{self.name} hisses.")
 
+# Zoo Class
 class Zoo:
-  def __init__(self):
-    self.animals = []
+    def __init__(self):
+        self.animals = []
 
-  def add_animal(self, animal):
-    self.animals.append(animal)
-    print (f"Added {animal.name} to the zoo.")
+    def add_animal(self, animal):
+        self.animals.append(animal)
+        print(f"Added {animal.name} to the zoo.")
 
-  def list_animals(self):
-    print("Animals in the zoo:")
-    for animal in self.animals:
-      print(animal)
+    def list_animals(self):
+        if not self.animals:
+            print("No animals!")
+        else:
+            print("Animals in the zoo:")
+            for animal in self.animals:
+                print(animal)
 
-  def make_all_sound(self):
-    print("Animal sounds:")
-    for animal in self.animals:
-      animal.make_sound()
+    def make_all_sounds(self):
+        print("Animal sounds:")
+        for animal in self.animals:
+            animal.make_sound()
 
-  def feed_all(self):
-    print("Feeding all animals:")
-    for animal in self.animals:
-      animal.feed()
+    def feed_all_animals(self):
+        print("Feeding all animals:")
+        for animal in self.animals:
+            animal.feed()
 
 def main():
   zoo = Zoo()
